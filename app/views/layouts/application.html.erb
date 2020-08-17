@@ -17,16 +17,32 @@
               <p class="nav navbar-nav navbar-left">Bookers</p>
           <div class="nav navbar-nav navbar-right">
              <% if user_signed_in? %>
-              <p class="glyphicon glyphicon-home" aria-hidden="true"><%= link_to "Home", user_path(current_user.id) %></p>
-              <p class="glyphicon glyphicon-user" aria-hidden="true"><%= link_to "Users", users_path %></p>
-              <p class="glyphicon glyphicon-book" aria-hidden="true"><%= link_to "Books", books_path %></p>
-              <p class="glyphicon glyphicon-log-out" aria-hidden="true"><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
+                 <%= link_to user_path(current_user.id) do %>
+                  <p class="glyphicon glyphicon-home" aria-hidden="true">Home</p>
+                 <% end %>
+                 <%= link_to users_path do %>
+                  <p class="glyphicon glyphicon-user" aria-hidden="true">Users</p>
+                 <% end %>
+                 <%= link_to books_path do %>
+                  <p class="glyphicon glyphicon-book" aria-hidden="true">Books</p>
+                 <% end %>
+                 <%= link_to destroy_user_session_path, method: :delete do %>
+                  <p class="glyphicon glyphicon-log-out" aria-hidden="true">logout</p>
+                 <% end %>
              <% else %>
-               <p class="glyphicon glyphicon-home" aria-hidden="true"><%= link_to "Home", root_path %></p>
-              <p class="glyphicon glyphicon-paperclip" aria-hidden="true"><%= link_to "About", "home/about" %> </p>
-              <p class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to "sign up", new_user_registration_path %></p>
-              <p  class="glyphicon glyphicon-log-in" aria-hidden="true"><%= link_to "login", new_user_session_path %></p>
-              <% end %>
+                 <%= link_to root_path do %>
+                   <p class="glyphicon glyphicon-home" aria-hidden="true">Home</p>
+                 <% end %>
+                 <%= link_to "home/about" do %>
+                  <p class="glyphicon glyphicon-link about" aria-hidden="true">About</p>
+                 <% end %>
+                 <%= link_to new_user_registration_path do %>
+                  <p class="glyphicon glyphicon-edit" aria-hidden="true">sign up</p>
+                 <% end %>
+                 <%= link_to new_user_session_path do %>
+                  <p class="glyphicon glyphicon-log-in" aria-hidden="true">login</p>
+                 <% end %>
+             <% end %>
           </div>
       </div>
   </header>
