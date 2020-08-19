@@ -2,20 +2,12 @@
 	<p><%= notice %></p>
   <div class="row">
      <div class="col-xs-3">
-			<h1>User info</h1>
-			<p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-			<p>name <%= @user.name %></p>
-			<p>introduction <%= @user.introduction %></p>
-			
-			<div class="row">
-	<%= link_to edit_user_path do %>
-	<div class="col-xs-12 btn btn-default glyphicon glyphicon-wrench">
-	</div>
-	<% end %>
-</div>
+     	    <!--userinfo-->
+			<%= render partial: 'info', locals: { user: @user } %>
 			<!-- 投稿 -->
 			<%= render partial: 'books/form', locals: { book: @book } %>
      </div>
+  
 
      <div class="col-xs-9">
 			<!-- 自分の投稿一覧　-->
